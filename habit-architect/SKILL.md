@@ -1,6 +1,6 @@
 ---
 name: habit-architect
-description: Turns a habit the user wants to build or break into 2-3 concrete, pick-one suggestions for each of the four laws of behavior change (cue, craving, response, reward), inspired by the book Atomic Habits. Includes a 2-Minute Rule version for good habits and commitment devices for bad ones. Use when the user mentions a habit, routine, bad habit, procrastination, doomscrolling, or asks how to stick to or stop something.
+description: Turns a personal habit the user wants to build or break into concrete, pick-one suggestions for each of the four laws of behavior change (cue, craving, response, reward), inspired by the book Atomic Habits. Includes a 2-Minute Rule version for good habits, commitment devices and a replacement habit for bad ones, and a Diagnose mode for a habit that didn't stick. Use when the user wants to start or stop a personal behavior, for example "I want to read more", "help me quit doomscrolling", "I keep procrastinating on studying", or "I tried going to the gym and gave up". Do NOT trigger for code, scripts, software processes or cron "routines", or questions about productivity tools.
 ---
 
 # Habit Architect
@@ -13,10 +13,23 @@ Inspired by *Atomic Habits* by James Clear. This skill is an independent, unoffi
 
 Ask for (or infer from the message):
 1. **The habit**, in the user's own words (for example "scrolling my phone in bed" or "read more").
-2. **Mode:** Build (a habit to start) or Break (a habit to stop). If unclear, ask one short question.
+2. **Mode:** Build (a habit to start), Break (a habit to stop), or Diagnose (a habit the user tried and that didn't stick).
 3. **Optional:** the identity the user wants ("I am someone who..."). If given, tie suggestions back to it. If not, offer one identity line at the end.
 
-If the habit is vague ("be healthier"), ask for one specific behavior before generating.
+Ask **at most one** short clarifying question, and only when the habit is too vague to act on ("be healthier" → "What's one specific thing you'd like to do more or less of?"). Otherwise infer the mode and details, and state any assumption in one line at the top.
+
+If the user names several habits, ask them to pick one to start with. If they insist on all, give a short pass per habit (one ⭐ suggestion per law, no extra blocks).
+
+## Safety first
+
+Some habits are not just habits. If the behavior involves **addiction or substance use, gambling, self-harm, an eating disorder, or a medical condition**:
+- Do not run the full template.
+- Be warm and non-judgmental. Give 1-2 gentle, low-risk suggestions at most.
+- Never suggest a money stake or a punishment-style consequence.
+- Encourage talking to a doctor, counsellor, or a local support line, and say plainly that reaching out is a strong move, not a failure.
+- If there is any sign of immediate danger to the user, put help resources first and skip habit advice.
+
+Also skip money stakes whenever the user mentions money stress or debt.
 
 ## The four laws
 
@@ -29,9 +42,11 @@ If the habit is vague ("be healthier"), ask for one specific behavior before gen
 
 ## Output rules
 
-- Give **2 or 3 suggestions per law**, never more. One sentence each, concrete and specific to the user's habit. No generic advice.
+- Give **2 suggestions per law** by default, 3 only when a third adds a genuinely different option. One sentence each, concrete and specific to the user's habit. No generic advice.
+- Mark the single strongest suggestion in each law with ⭐ so the user is never stuck choosing.
 - Mix the types of strategy within a law so the user has real choices (see the toolbox below).
 - Keep suggestions realistic for a normal day. Prefer changes to the environment over willpower.
+- Never shame or moralize. Frame identity positively (who the user is becoming), not as a label for who they are now.
 - Do not quote the book. Paraphrase.
 
 ### Toolbox to draw from
@@ -42,7 +57,7 @@ If the habit is vague ("be healthier"), ask for one specific behavior before gen
 **Reward (satisfying):** an immediate small reward, a visible habit tracker, a "never miss twice" rule.
 
 **Invisible (break):** remove, hide, or relocate the trigger; unsubscribe; log out; keep the object out of sight.
-**Unattractive (break):** list what the habit really costs, reframe its benefits as costs, link it to the identity the user does not want.
+**Unattractive (break):** name the need the habit really serves (rest, connection, relief from boredom or stress) and suggest a **replacement habit** that meets the same need; list what the habit really costs; reframe its benefits as costs; contrast it with the identity the user is building.
 **Difficult (break):** add friction (delete the app, app timers, extra steps, distance), and use a commitment device.
 **Unsatisfying (break):** accountability partner, a habit contract with a real consequence, making the cost immediate.
 
@@ -50,25 +65,41 @@ If the habit is vague ("be healthier"), ask for one specific behavior before gen
 
 In its own highlighted block, shrink the habit to a version that takes under two minutes and is almost impossible to skip. The point is to master *showing up* first. Examples: "read 30 pages" becomes "read one page"; "run 5 km" becomes "put on running shoes"; "study for exams" becomes "open the notes". Add 1-2 prep steps that lower friction further.
 
+End the block with a **Next step up:** line saying when and how to grow it (for example "after two weeks without missing twice, make it 5 minutes").
+
 ## Break mode: add commitment devices
 
 In its own highlighted block, offer 2-3 commitment devices, chosen from these types and tailored to the habit:
 - **Friction lock:** a blocker, timer lock, or physical barrier set up in advance.
 - **Pre-commitment:** a decision made now that removes the choice later.
 - **Social stake:** someone else is told and notified if the user slips.
-- **Money stake:** a pledge or penalty that costs something real.
+- **Money stake:** a small, affordable pledge or penalty that costs something real (never in the cases listed under Safety first).
 
 For each: a one-line setup, an "If I slip, then..." consequence, and the first setup step to do **now**, while motivation is high and the temptation is absent.
 
+## Diagnose mode: a habit that didn't stick
+
+Use when the user says they tried a habit and it fell apart. Most habits fail at least once; the goal is to find which law broke, not to start over.
+
+1. If the message doesn't say what happened, ask one question: "What usually happens on the days you skip it?"
+2. Match the answer to the law that failed:
+   - "I forgot" / "it never came up" → **Cue**
+   - "I didn't feel like it" / "it felt like a chore" → **Craving**
+   - "It took too long" / "too much effort" / "no time" → **Response**
+   - "I did it but nothing changed" / "felt pointless" → **Reward**
+3. Give 2-3 fixes for that law only (⭐ on the strongest), plus a smaller 2-Minute version of the habit if Response or Craving failed.
+4. Reassure briefly: one slip is normal; the rule that matters is not missing twice.
+
 ## Closing
 
-1. **Start today with:** one single recommendation. For Build mode, the 2-minute version. For Break mode, the strongest friction step.
-2. If no identity was given, one suggested identity line.
-3. The disclaimer below. **This footer is mandatory.** Include it on every output, even if the user asks for a short version or no extras.
+1. **Start today with:** one single recommendation. For Build mode, the 2-minute version. For Break mode, the strongest friction step. For Diagnose mode, the ⭐ fix.
+2. **Break mode only — Replace with:** the replacement habit that meets the same need.
+3. If no identity was given, one suggested identity line.
+4. The disclaimer below, on the first full result in a conversation. It may be left off short follow-up replies in the same conversation.
 
-## Mandatory disclaimer (use this exact text)
+## Disclaimer (use this exact text)
 
-> *These suggestions are a quick starting point drawn from a small part of* Atomic Habits *by James Clear. They're not a substitute for the book. Buy it, read it in full, and work through all of its principles. Don't rely on this skill alone.*
+> *A quick starting point drawn from a small part of* Atomic Habits *by James Clear. The book goes much deeper. Read it in full rather than relying on this skill alone.*
 
 ## Output format
 
@@ -76,29 +107,86 @@ For each: a one-line setup, an "If I slip, then..." consequence, and the first s
 ## Habit: <habit>  (<Build | Break>)
 
 ### 1. <Obvious | Invisible>
-- ...
+- ⭐ ...
 - ...
 
 ### 2. <Attractive | Unattractive>
-- ...
+- ⭐ ...
 - ...
 
 ### 3. <Easy | Difficult>
-- ...
+- ⭐ ...
 - ...
 
 ### 4. <Satisfying | Unsatisfying>
-- ...
+- ⭐ ...
 - ...
 
 ### 2-Minute Rule   (Build mode only)
 ...
+**Next step up:** ...
 
 ### Commitment devices   (Break mode only)
 ...
 
 **Start today with:** ...
+**Replace with:** ...   (Break mode only)
+**Identity:** I am someone who ...   (if none given)
 
 ---
 <disclaimer>
+```
+
+Diagnose mode:
+
+```
+## Habit: <habit>  (Diagnose)
+
+**What broke:** <law> — <one-line reason, in the user's words>
+
+### Fixes
+- ⭐ ...
+- ...
+
+**Smaller version:** ...   (if Response or Craving failed)
+
+**Start today with:** ...
+
+---
+<disclaimer>
+```
+
+## Worked example
+
+User: "I want to stop scrolling my phone in bed."
+
+```
+## Habit: Scrolling my phone in bed  (Break)
+
+### 1. Invisible
+- ⭐ Charge your phone across the room, not on the nightstand.
+- Put a paper book on your pillow each morning so it's the first thing you see at night.
+
+### 2. Unattractive
+- ⭐ Scrolling is probably winding down after a long day; swap it for a podcast or audiobook on a sleep timer.
+- Note how you feel the next morning after a late scroll versus an early night.
+
+### 3. Difficult
+- ⭐ Set an app limit on social apps that locks at 10:00 pm.
+- Log out of your most-scrolled app every night so getting back in takes effort.
+
+### 4. Unsatisfying
+- ⭐ Share your weekly screen-time report with a friend every Sunday.
+- Mark a red X on a wall calendar for every night you scroll past 10:30 pm.
+
+### Commitment devices
+- **Pre-commitment:** the charger lives in the hallway. If I slip, then my alarm moves 20 minutes earlier tomorrow. Now: move the charger tonight.
+- **Friction lock:** a 10 pm app limit set with a passcode your partner keeps. If I slip, then the limit moves to 9:30. Now: set it up before dinner.
+
+**Start today with:** move the charger out of the bedroom tonight.
+**Replace with:** a 15-minute audiobook on a sleep timer.
+**Identity:** I am someone who protects my sleep.
+
+---
+> *A quick starting point drawn from a small part of* Atomic Habits *by James Clear. The book goes much deeper. Read it in full rather than relying on this skill alone.*
 ```

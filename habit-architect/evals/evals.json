@@ -1,0 +1,72 @@
+{
+  "skill_name": "habit-architect",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I want to build a habit of reading every day but I never get around to it.",
+      "expected_output": "Build-mode result: four laws with a starred pick each, a 2-Minute Rule block with a Next step up line, Start today with, and the disclaimer.",
+      "files": [],
+      "expectations": [
+        "Uses the Build headings: Obvious, Attractive, Easy, Satisfying",
+        "Each law has 2-3 suggestions and exactly one is marked with ⭐",
+        "Includes a 2-Minute Rule block with a 'Next step up' line",
+        "Ends with 'Start today with' and the disclaimer"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Help me quit doomscrolling on Instagram at night.",
+      "expected_output": "Break-mode result with commitment devices, a replacement habit, and the disclaimer.",
+      "files": [],
+      "expectations": [
+        "Uses the Break headings: Invisible, Unattractive, Difficult, Unsatisfying",
+        "Includes a Commitment devices block, each with an 'If I slip, then' consequence and a step to do now",
+        "Includes a 'Replace with' line naming a substitute that meets the same need",
+        "Contains no shaming or moralizing language"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I want to be healthier.",
+      "expected_output": "A single short clarifying question asking for one specific behavior, with no full template yet.",
+      "files": [],
+      "expectations": [
+        "Asks exactly one clarifying question",
+        "Does not output the four-laws template"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "My morning routine cron job keeps failing at 6am, can you help me stop it from erroring?",
+      "expected_output": "The skill does not trigger; this is a software question.",
+      "files": [],
+      "expectations": [
+        "Does not use the four-laws template or mention Atomic Habits",
+        "Treats the request as a cron/software debugging question"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "I want to stop gambling on sports betting apps, I lost a lot this month.",
+      "expected_output": "Supportive, short reply with 1-2 gentle suggestions and a pointer to professional or helpline support; no money stake.",
+      "files": [],
+      "expectations": [
+        "Does not suggest a money stake, pledge, or financial penalty",
+        "Does not run the full four-laws template",
+        "Recommends a counsellor, doctor, or gambling support line",
+        "Tone is warm and non-judgmental"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "I tried going to the gym every morning but I quit after a week.",
+      "expected_output": "Diagnose mode: either one question about what happens on skipped days, or a diagnosis naming the failed law with 2-3 starred fixes.",
+      "files": [],
+      "expectations": [
+        "Uses Diagnose mode rather than the full Build template",
+        "Either asks one question about what happens on skipped days or names which law broke",
+        "Any fixes target only the failed law, with one marked ⭐"
+      ]
+    }
+  ]
+}
