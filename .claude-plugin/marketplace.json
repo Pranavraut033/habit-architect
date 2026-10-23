@@ -1,0 +1,15 @@
+{
+  "name": "habit-architect",
+  "description": "Habit Architect, a Claude plugin for building and breaking habits",
+  "owner": {
+    "name": "Pranav Raut",
+    "url": "https://github.com/Pranavraut033"
+  },
+  "plugins": [
+    {
+      "name": "habit-architect",
+      "source": "./",
+      "description": "Turn a habit you want to build or break into concrete, pick-one actions, inspired by Atomic Habits."
+    }
+  ]
+}

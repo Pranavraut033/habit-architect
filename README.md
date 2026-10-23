@@ -36,28 +36,28 @@ You'd get something like:
 - **Commitment device:** the charger lives in the hallway; if you slip, your alarm moves 20 minutes earlier
 - **Start today with:** move the charger out of the bedroom tonight
 
-## Install
+## How to add it to Claude
 
-### Claude Code
+Takes about a minute. No coding needed.
 
-```bash
-git clone https://github.com/Pranavraut033/habit-architect.git
-cp -r habit-architect/habit-architect ~/.claude/skills/
+### On claude.ai or the Claude app
+
+1. **[Download habit-architect.zip](https://github.com/Pranavraut033/habit-architect/releases/latest/download/habit-architect.zip)**. Don't unzip it.
+2. Open Claude and go to **Settings → Capabilities**.
+3. Turn on **Skills** if it isn't already on.
+4. Click **Upload skill** and choose the `habit-architect.zip` file you just downloaded.
+
+### In Claude Code
+
+Paste this into Claude Code:
+
+```
+/plugin install habit-architect --marketplace Pranavraut033/habit-architect
 ```
 
-That makes it available in every project. To use it in one project only, copy it to that project's `.claude/skills/` folder instead. Restart Claude Code after copying.
+### Try it
 
-### Claude.ai or Claude Desktop
-
-1. Click **Code → Download ZIP** on this page and unzip it.
-2. Inside, find the folder named `habit-architect` that contains `SKILL.md`, and zip **that folder** on its own.
-3. In Claude, go to **Settings → Capabilities**, make sure Skills are turned on, and upload your zip under **Skills**.
-
-> The repo has a `habit-architect/` folder inside `habit-architect/` on purpose: the outer one is the repo, the inner one is the skill you install.
-
-### Check it works
-
-Start a new chat and try:
+Start a new chat and try one of these:
 - *"Help me build a habit of reading daily."*
 - *"I want to quit doomscrolling."*
 - *"I tried meditating every morning but gave up after a few days."*
@@ -82,7 +82,7 @@ Start a new chat and try:
 
 ## Testing
 
-`habit-architect/evals/evals.json` has six test prompts: build, break, a vague request, a false trigger (a cron job "routine"), a sensitive case (gambling), and a Diagnose case. Run them with Anthropic's [skill-creator](https://github.com/anthropics/skills) skill to check that changes don't break behavior.
+`skills/habit-architect/evals/evals.json` has six test prompts: build, break, a vague request, a false trigger (a cron job "routine"), a sensitive case (gambling), and a Diagnose case. Run them with Anthropic's [skill-creator](https://github.com/anthropics/skills) skill to check that changes don't break behavior.
 
 ## Please read the book
 
