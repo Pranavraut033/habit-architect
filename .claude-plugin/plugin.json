@@ -1,7 +1,7 @@
 {
   "name": "habit-architect",
   "displayName": "Habit Architect",
-  "description": "Turn a habit you want to build or break into concrete, pick-one actions, inspired by Atomic Habits.",
+  "description": "Turn a habit you want to build or break into concrete, pick-one actions, based on the four laws of behavior change.",
   "version": "1.0.0",
   "author": {
     "name": "Pranav Raut",
@@ -10,5 +10,5 @@
   "homepage": "https://github.com/Pranavraut033/habit-architect",
   "repository": "https://github.com/Pranavraut033/habit-architect",
   "license": "MIT",
-  "keywords": ["habits", "atomic-habits", "productivity", "self-improvement"]
+  "keywords": ["habits", "productivity", "self-improvement"]
 }

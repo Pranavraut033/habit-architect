@@ -9,7 +9,7 @@
     {
       "name": "habit-architect",
       "source": "./",
-      "description": "Turn a habit you want to build or break into concrete, pick-one actions, inspired by Atomic Habits."
+      "description": "Turn a habit you want to build or break into concrete, pick-one actions, based on the four laws of behavior change."
     }
   ]
 }
